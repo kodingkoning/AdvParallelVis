@@ -4,8 +4,6 @@
 
 #include "Block.h"
 
-// TODO: make a matrix width (whatever it is when the gridSize is 4) and make the larger ones fit into that so we can have all the sizes fit on one screen
-
 ColorFloat getColor(int tid, int gridSize, block_name blk) {
     if(blk == A) {
       int myRow = tid/gridSize;
@@ -55,7 +53,6 @@ Block::Block(Canvas& can, int threadId, int grid_size, block_name blk) {
   int squareWidth = BLOCK_SIZE*0.85;
   tid = threadId;
   margin = (can.getWindowHeight() - MAT_SIZE)/2;
-  //margin = (can.getWindowHeight() - BLOCK_SIZE*gridSize)/2 + 60;
   marginX = (can.getWindowWidth() - MAT_SIZE*3)/4;
   myRow = threadId / gridSize;
   myCol = threadId % gridSize;

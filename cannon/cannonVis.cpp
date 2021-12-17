@@ -13,19 +13,11 @@
 
 using namespace tsgl;
 
-// TODO: create matrix A and B, and have one move by rows and one move by columns
-
-// simulate the use of multiple processes with multiple threads (as multiple processes cannot write to the same TSGL canvas)
-
 /*
- * TODO: write description
+ * Main function for Cannon algorithm. Creates the threads and Blocks.
+ * Simulates the use of multiple processes with multiple threads (as multiple processes cannot write to the same TSGL canvas)
  */
 void cannonFunction(Canvas& can, int threads, int gridSize) {
-  // steps:
-  //    setup
-  //    loop:
-  //        multiply
-  //        move data to next process
   #pragma omp parallel num_threads(threads*3)
   {
     if(omp_get_thread_num() < threads) {
